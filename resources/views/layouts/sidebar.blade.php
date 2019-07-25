@@ -80,7 +80,7 @@
                       @endif
                       @if( Auth::user()->id_role == "2")
                       <li class="nav-item"><a href="{{Route('inputjenispsks')}}" class="nav-link">Input Profesi PSKS</a></li>
-                      <li class="nav-item"><a href="{{Route('inputdatapsks')}}" class="nav-link">Input Data PSKS</a></li>
+                      <li class="nav-item"><a href="{{Route('inputdatapsks')}}" class="nav-link">Input User PSKS</a></li>
                       @endif
                     </ul>
                   </li>
@@ -96,7 +96,7 @@
                       <li class="nav-item"><a href="{{Route('tabeldiklat')}}" class="nav-link">Diklat</a></li>
                     @endif
                     @if( Auth::user()->id_role == "2")
-                      <li class="nav-item"><a href="{{Route('tabeldatapsks')}}" class="nav-link">Data PSKS</a></li>
+                      <li class="nav-item"><a href="{{Route('tabeldatapsks')}}" class="nav-link">User PSKS</a></li>
                       <li class="nav-item"><a href="{{Route('tabeljenispsks')}}" class="nav-link">Profesi PSKS</a></li>
                       <li class="nav-item"><a href="{{Route('tabeladmindiklat')}}" class="nav-link">Diklat PSKS</a></li>
                       <li class="nav-item"><a href="{{Route('tabeladminkeluargaterdamping')}}" class="nav-link">Keluarga Terdamping PSKS</a></li>

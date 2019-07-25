@@ -5,7 +5,7 @@
               <div class="card page-header page-header-light">
                 <div class="page-header-content header-elements-md-inline">
                   <div class="page-title d-flex">
-                    <h2><span class="font-weight-semibold mx-2">PSKS</span> - Input Data Keluarga Terdamping</h2>
+                    <h2><span class="font-weight-semibold mx-2">PSKS</span> Input Data Keluarga Terdamping</h2>
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                   </div>
                 </div>
@@ -13,35 +13,15 @@
                 <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
                   <div class="d-flex">
                     <div class="breadcrumb">
-                      <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
-                      <span class="breadcrumb-item active">Dashboard</span>
+                      <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> PSKS</a>
+                      <span class="breadcrumb-item active">Form Input Keluarga Terdamping</span>
                     </div>
 
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                   </div>
 
                   <div class="header-elements d-none">
-                    <div class="breadcrumb justify-content-center">
-                      <a href="#" class="breadcrumb-elements-item">
-                        <i class="icon-comment-discussion mr-2"></i>
-                        Support
-                      </a>
-
-                      <div class="breadcrumb-elements-item dropdown p-0">
-                        <a href="#" class="breadcrumb-elements-item dropdown-toggle" data-toggle="dropdown">
-                          <i class="icon-gear mr-2"></i>
-                          Settings
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right">
-                          <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Account security</a>
-                          <a href="#" class="dropdown-item"><i class="icon-statistics"></i> Analytics</a>
-                          <a href="#" class="dropdown-item"><i class="icon-accessibility"></i> Accessibility</a>
-                          <div class="dropdown-divider"></div>
-                          <a href="#" class="dropdown-item"><i class="icon-gear"></i> All settings</a>
-                        </div>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -98,7 +78,7 @@
 											{{ csrf_field() }}
 										</fieldset>
 										<div class="text-right">
-											<button type="submit" class="btn btn-primary" >Cari<i class="icon-paperplane ml-2"></i></button>
+											<button type="submit" class="btn btn-primary" onload="myFunction()">Cari<i class="icon-paperplane ml-2"></i></button>
 										</div>
 								</form>
                             </div>  
@@ -106,8 +86,9 @@
                 </div>
               </div>
 
+			  <!-- <div id="loader"></div> -->
 
-			  <div class="row">
+			  <div class="row" id="myDiv" class="animate-bottom" >
 					<div class="col-md-12">
 					@if($bdt != null)
 						<!-- Basic legend -->
@@ -175,7 +156,72 @@
           </div>
 @endsection
 
-@section('js')    
+@section('js')
+	<style>
+	/* Center the loader */
+	#loader {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	width: 150px;
+	height: 150px;
+	margin: -75px 0 0 -75px;
+	border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #3498db;
+	width: 120px;
+	height: 120px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+	}
+
+	@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+	}
+
+	@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+	}
+
+	/* Add animation to "page content" */
+	.animate-bottom {
+	position: relative;
+	-webkit-animation-name: animatebottom;
+	-webkit-animation-duration: 1s;
+	animation-name: animatebottom;
+	animation-duration: 1s
+	}
+
+	@-webkit-keyframes animatebottom {
+	from { bottom:-100px; opacity:0 } 
+	to { bottom:0px; opacity:1 }
+	}
+
+	@keyframes animatebottom { 
+	from{ bottom:-100px; opacity:0 } 
+	to{ bottom:0; opacity:1 }
+	}
+
+	#myDiv {
+	display: none;
+	text-align: center;
+	}
+	</style>
+	<script>
+		var myVar;
+
+		function myFunction() {
+		myVar = setTimeout(showPage, 3000);
+		}
+
+		function showPage() {
+		document.getElementById("loader").style.display = "none";
+		document.getElementById("myDiv").style.display = "block";
+		}
+	</script>  
 	<script src="{{url('/')}}/template/global_assets/js/plugins/notifications/pnotify.min.js"></script>
 	<script src="{{url('/')}}/template/global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
     <script src="{{url('/')}}/template/global_assets/js/demo_pages/form_multiselect.js"></script>

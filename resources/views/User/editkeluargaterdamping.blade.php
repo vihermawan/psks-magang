@@ -65,7 +65,7 @@
 									<fieldset>
 										<legend class="font-weight-semibold text-uppercase font-size-sm">Masukkan Data Keluarga Terdamping</legend>
 
-                                        <div class="form-group">
+                    <div class="form-group">
 											<label>NIK Keluarga:</label>
 											<input type="text" class="form-control" placeholder="Masukkan Nomor NIK" name="NikKeluarga"  id="NikKeluarga" value="{{$data->NikKeluarga}}">
 										</div>
@@ -80,35 +80,35 @@
 											<input type="text" class="form-control" placeholder="Masukkan Nama" name="NamaKepalaKeluarga" id="NamaKepalaKeluarga" value="{{$data->NamaKepalaKeluarga}}">
 										</div>
 
-                                        <div class="form-group">
+                    <div class="form-group">
 											<label>Alamat:</label>
 											<textarea rows="5" cols="5" class="form-control" placeholder="Masukkan alamat" name="Alamat" id="Alamat" value="{{$data->Alamat}}"></textarea>
-                                        </div>
+                    </div>
                                         
-                                        <div class="form-group">
-                                            <label>Program Bansos</label>
-                                            <select class="form-control select" data-fouc id="KodeProgramBansos" name="KodeProgramBansos" value="{{$data->KodeProgramBansos}}">
-                                                <option value="1">KUBE</option>
-                                                <option value="2">KUBE-JASA</option>
-                                                <option value="3">RS-RTLH</option>
-                                                <option value="4">SARLING</option>
-                                                <option value="5">E-WARONG</option>
-                                                <option value="6">PKH Non Tunai</option>
-                                                <option value="7">PKH</option>
-                                                <option value="8">ASPDB</option>
-                                                <option value="9">ASLUT</option>
-                                                <option value="10">UEP-FM</option>
-                                                <option value="11">PKSA</option>
-                                                <option value="12">JADUP</option>
-                                                <option value="13">IPWL-Luar Panti</option>
-                                                <option value="14">TASA</option>
-                                                <option value="15">HDN PKM</option>
-                                                <option value="16">BSPS-KAT</option>
-                                                <option value="17">PKH-REGULER</option>
-                                                <option value="18">PKH-AKSES</option>
-                                                <option value="19">PKH-DISABILITAS</option>
-                                                <option value="20 ">PKH Lansia</option>
-                                            </select>
+                      <div class="form-group">
+                        <label>Program Bansos</label>
+                        <select class="form-control select" data-fouc id="KodeProgramBansos" name="KodeProgramBansos" value="{{$data->KodeProgramBansos}}">
+                          <option value="1">KUBE</option>
+                          <option value="2">KUBE-JASA</option>
+                          <option value="3">RS-RTLH</option>
+                          <option value="4">SARLING</option>
+                          <option value="5">E-WARONG</option>
+                          <option value="6">PKH Non Tunai</option>
+                          <option value="7">PKH</option>
+                          <option value="8">ASPDB</option>
+                          <option value="9">ASLUT</option>
+                          <option value="10">UEP-FM</option>
+                          <option value="11">PKSA</option>
+                          <option value="12">JADUP</option>
+                          <option value="13">IPWL-Luar Panti</option>
+                          <option value="14">TASA</option>
+                          <option value="15">HDN PKM</option>
+                          <option value="16">BSPS-KAT</option>
+                          <option value="17">PKH-REGULER</option>
+                          <option value="18">PKH-AKSES</option>
+                          <option value="19">PKH-DISABILITAS</option>
+                          <option value="20 ">PKH Lansia</option>
+                      </select>
 										</div>
 					
 									</fieldset>

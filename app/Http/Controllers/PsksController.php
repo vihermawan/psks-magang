@@ -40,7 +40,7 @@ class PsksController extends Controller {
             $c= User::find($id);
             $c->id_role = $request->id_role;
             $c->update();
-            return redirect('tabelhakakses');
+            return redirect('tabelhakakses')->with(['edit' => 'Hak Akses User berhasil diubah']);
         }
 
         public function hapushakakses(Request $request, $id){
@@ -49,7 +49,7 @@ class PsksController extends Controller {
 
             $c= Psks::find($c->NikPSKS);
             $c->delete();
-            return redirect('tabelhakakses');
+            return redirect('tabelhakakses')->with(['delete' => 'Hak Akses User berhasil dihapus']);
         }
     
         //admincontroller

@@ -11,31 +11,13 @@
                 <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
                   <div class="d-flex">
                     <div class="breadcrumb">
-                      <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
-                      <span class="breadcrumb-item active">Dashboard</span>
+                      <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i>PSKS</a>
+                      <span class="breadcrumb-item active">Tabel Hak Akses</span>
                     </div>
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                   </div>
                   <div class="header-elements d-none">
-                    <div class="breadcrumb justify-content-center">
-                      <a href="#" class="breadcrumb-elements-item">
-                        <i class="icon-comment-discussion mr-2"></i>
-                        Support
-                      </a>
-                      <div class="breadcrumb-elements-item dropdown p-0">
-                        <a href="#" class="breadcrumb-elements-item dropdown-toggle" data-toggle="dropdown">
-                          <i class="icon-gear mr-2"></i>
-                          Settings
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                          <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Account security</a>
-                          <a href="#" class="dropdown-item"><i class="icon-statistics"></i> Analytics</a>
-                          <a href="#" class="dropdown-item"><i class="icon-accessibility"></i> Accessibility</a>
-                          <div class="dropdown-divider"></div>
-                          <a href="#" class="dropdown-item"><i class="icon-gear"></i> All settings</a>
-                        </div>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -50,7 +32,72 @@
                     </div>
                     </div>
                     <div class="card-body">
-                    
+                          @if ($message = Session::get('success'))
+                          <script type="text/javascript">
+                            $(document).ready(function() {
+                              $('#modal_theme_primary').modal();
+                            });
+                          </script>
+                          <div id="modal_theme_primary" class="modal fade" tabindex="-1">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header bg-primary">
+                                  <h6 class="modal-title">Pemberitahuan</h6>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <div class="modal-body">
+                                  <h6 class="font-weight-semibold">{{ $message }}</h6>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        @endif
+                        @if ($message = Session::get('delete'))
+                          <script type="text/javascript">
+                            $(document).ready(function() {
+                              $('#modal_theme_danger').modal();
+                            });
+                          </script>
+                          <div id="modal_theme_danger" class="modal fade" tabindex="-1">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header bg-danger">
+                                  <h6 class="modal-title">Pemberitahuan</h6>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <div class="modal-body">
+                                  <h6 class="font-weight-semibold">{{ $message }}</h6>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        @endif
+                        @if ($message = Session::get('edit'))
+                          <script type="text/javascript">
+                            $(document).ready(function() {
+                              $('#modal_theme_warning').modal();
+                            });
+                          </script>
+                          <div id="modal_theme_warning" class="modal fade" tabindex="-1">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header bg-warning">
+                                  <h6 class="modal-title">Pemberitahuan</h6>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <div class="modal-body">
+                                  <h6 class="font-weight-semibold">{{ $message }}</h6>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        @endif
                     </div>
                     <table class="table datatable-basic table-bordered">
                       <thead>

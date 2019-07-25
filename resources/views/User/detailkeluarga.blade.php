@@ -1,12 +1,12 @@
 @extends('layouts.main')
 @section('content')
 @foreach($data as $key)
-            @if($key->IDARTBDT == $_GET['IDARTBDT'])
+    @if($key->IDARTBDT == $_GET['IDARTBDT'])
 <!-- Page header -->
               <div class="page-header page-header-light">
                 <div class="page-header-content header-elements-md-inline">
                   <div class="page-title d-flex">
-                    <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">SIKS</span> - Detail Data KAT</h4>
+                    <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">PSKS</span> Detail Keluarga Terdamping</h4>
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                   </div>
                 </div>
@@ -14,35 +14,15 @@
                 <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
                   <div class="d-flex">
                     <div class="breadcrumb">
-                      <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
-                      <span class="breadcrumb-item active">Dashboard</span>
+                      <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i>PSKS</a>
+                      <span class="breadcrumb-item active">Detail Keluarga Terdamping</span>
                     </div>
 
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                   </div>
 
                   <div class="header-elements d-none">
-                    <div class="breadcrumb justify-content-center">
-                      <a href="#" class="breadcrumb-elements-item">
-                        <i class="icon-comment-discussion mr-2"></i>
-                        Support
-                      </a>
-
-                      <div class="breadcrumb-elements-item dropdown p-0">
-                        <a href="#" class="breadcrumb-elements-item dropdown-toggle" data-toggle="dropdown">
-                          <i class="icon-gear mr-2"></i>
-                          Settings
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right">
-                          <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Account security</a>
-                          <a href="#" class="dropdown-item"><i class="icon-statistics"></i> Analytics</a>
-                          <a href="#" class="dropdown-item"><i class="icon-accessibility"></i> Accessibility</a>
-                          <div class="dropdown-divider"></div>
-                          <a href="#" class="dropdown-item"><i class="icon-gear"></i> All settings</a>
-                        </div>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -113,38 +93,45 @@
                                         </div>
                                     </center> 
                                     <div class="card-body">
+                                        @foreach($bdt_rt as $val)
+                                            @if($val->IDBDT == $key->IDBDT)
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-5 col-form-label">ID BDT</label>
                                                 <div class="col-sm-7">
-                                                <input type="text" class="form-control" id="IDBDT" readonly value="{{$key->IDARTBDT}}">
+                                                <input type="text" class="form-control" id="IDBDT" readonly value="{{$val->IDBDT}}">
                                                 </div>
                                             </div> 
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-5 col-form-label">JUMLAH ART</label>
                                                 <div class="col-sm-5">
-                                                <input type="text" class="form-control" id="Jumlah_ART"readonly value="Masukkan Jumlah..">
+                                                <input type="text" class="form-control" id="Jumlah_ART"readonly value="{{$val->Jumlah_ART}}">
                                                 </div>
                                                 <label for="inputProvinsi" class="col-sm-2 col-form-label">ORANG</label>
                                             </div> 
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-5 col-form-label">JUMLAH KELUARGA</label>
                                                 <div class="col-sm-4">
-                                                <input type="text" class="form-control" id="Jumlah_Keluarga" readonly value="Masukkan Jumlah..">
+                                                <input type="text" class="form-control" id="Jumlah_Keluarga" readonly value="{{$val->Jumlah_Keluarga}}">
                                                 </div>
                                                 <label for="inputProvinsi" class="col-sm-3 col-form-label">KELUARGA</label>
                                             </div> 
+
+                                            <div class="form-group row">
+                                                <label for="inputProvinsi" class="col-sm-5 col-form-label">NAMA KRT</label>
+                                                <div class="col-sm-7">
+                                                <input type="text" class="form-control" id="Nama_KRT" readonly value="{{$val->Nama_KRT}}">
+                                                </div>
+                                            </div> 
+                                                @endif
+                                            @endforeach
+
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-5 col-form-label">NIK</label>
                                                 <div class="col-sm-7">
                                                 <input type="text" class="form-control" id=" " value=" "readonly value="{{$key->NIK}}">
                                                 </div>
                                             </div> 
-                                            <div class="form-group row">
-                                                <label for="inputProvinsi" class="col-sm-5 col-form-label">NAMA KRT</label>
-                                                <div class="col-sm-7">
-                                                <input type="text" class="form-control" id="Nama_KRT" readonly >
-                                                </div>
-                                            </div> 
+                                               
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-5 col-form-label">JENIS KELAMIN</label>
                                                 <div class="col-sm-7">
@@ -194,13 +181,13 @@
                                                         <div class="custom-control custom-checkbox">
                                                             <input type="checkbox" class="custom-control-input" id="custom_checkbox_stacked_checked_disabled" disabled>
                                                             <label class="custom-control-label" for="custom_checkbox_stacked_checked_disabled">
-                                                                                0. Tidak Memiliki
+                                                                0. Tidak Memiliki
                                                             </label>
                                                         </div>
                                                         <div class="custom-control custom-checkbox">
                                                             <input type="checkbox" class="custom-control-input" id="custom_checkbox_stacked_checked_disabled" disabled>
                                                             <label class="custom-control-label" for="custom_checkbox_stacked_checked_disabled">
-                                                              1. Akte Lahir
+                                                                1. Akte Lahir
                                                             </label>
                                                         </div>
                                                         <div class="custom-control custom-checkbox">
@@ -250,19 +237,19 @@
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-5 col-form-label">JENJANG PENDIDIKAN</label>
                                                 <div class="col-sm-7">
-                                                <input type="text" class="form-control" id="jenjang_pendidikan" value=" "readonly value="{{$key->   Pendidikan_tertinggi}}">
+                                                <input type="text" class="form-control" id="jenjang_pendidikan" value=" "readonly value="{{$key->Pendidikan_tertinggi}}">
                                                 </div>
                                             </div> 
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-5 col-form-label">KELAS TERTINGGI</label>
                                                 <div class="col-sm-7">
-                                                <input type="text" class="form-control" id="kelas_tertinggi" value= " "readonly value="{{$key->   Kelas_tertinggi}}">
+                                                <input type="text" class="form-control" id="kelas_tertinggi" value= " "readonly value="{{$key->Kelas_tertinggi}}">
                                                 </div>
                                             </div> 
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-5 col-form-label">IJAZAH YANG DIMILIKI</label>
                                                 <div class="col-sm-7">
-                                                <input type="text" class="form-control" id="ijazah" value=" "readonly value="{{$key->   Ijazah_tertinggi}}">
+                                                <input type="text" class="form-control" id="ijazah" value=" "readonly value="{{$key->Ijazah_tertinggi}}">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -318,7 +305,7 @@
                                 <div class="form-group row">
                                     <label for="inputProvinsi" class="col-sm-6 col-form-label">STATUS LAHAN TINGGAL</label>
                                     <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="sta_lahan" value="{{$val->sta_lahan}}"readonly value="Masukkan Provinsi..">
+                                    <input type="text" class="form-control" id="sta_lahan" value="{{$val->sta_lahan}}"readonly >
                                     </div>
                                 </div> 
                                 <div class="form-group row">
@@ -448,7 +435,7 @@
                                                     <div class="custom-control custom-checkbox">
                                                         <input type="checkbox" class="custom-control-input" id="custom_checkbox_stacked_checked_disabled" disabled>
                                                         <label class="custom-control-label" for="custom_checkbox_stacked_checked_disabled">
-                                                                            Tabung Gas > 5.5kg
+                                                            Tabung Gas > 5.5kg
                                                         </label>
                                                     </div>
                                                     <div class="custom-control custom-checkbox">
@@ -542,54 +529,54 @@
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-4 col-form-label">LAHAN</label>
                                                 <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="aset_tak_bergerak" readonly value="Masukkan Aset..">
+                                                <input type="text" class="form-control" id="aset_tak_bergerak" readonly value="{{$val->aset_tak_bergerak}}">
                                                 </div>
                                             </div> 
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-4 col-form-label">LUAS</label>
                                                 <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="luas_atb" value=" "readonly value="Masukkan Luas..">
+                                                <input type="text" class="form-control" id="luas_atb" value=" "readonly value="{{$val->luas_atb}}">
                                                 </div>
                                                 <label for="inputProvinsi" class="col-sm-2 col-form-label">M2</label>
                                             </div> 
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-4 col-form-label">RUMAH DITEMPAT LAIN</label>
                                                 <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="rumah_lain" readonly value="Masukkan Rumah..">
+                                                <input type="text" class="form-control" id="rumah_lain" readonly value="{{$val->rumah_lain  }}">
                                                 </div>
                                             </div> 
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-4 col-form-label">SAPI</label>
                                                 <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="jumlah_sapi" readonly value="Masukkan Jumlah..">
+                                                <input type="text" class="form-control" id="jumlah_sapi" readonly value="{{$val->jumlah_sapi}}">
                                                 </div>
                                                 <label for="inputProvinsi" class="col-sm-2 col-form-label">EKOR</label>
                                             </div> 
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-4 col-form-label">KERBAU</label>
                                                 <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="jumlah_kerbau" readonly value="Masukkan Jumlah..">
+                                                <input type="text" class="form-control" id="jumlah_kerbau" readonly value="{{$val->jumlah_kerbau}}">
                                                 </div>
                                                 <label for="inputProvinsi" class="col-sm-2 col-form-label">EKOR</label>
                                             </div> 
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-4 col-form-label">KUDA</label>
                                                 <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="jumlah_kuda" readonly value="Masukkan Jumlah..">
+                                                <input type="text" class="form-control" id="jumlah_kuda" readonly value="{{$val->jumlah_kuda}}">
                                                 </div>
                                                 <label for="inputProvinsi" class="col-sm-2 col-form-label">EKOR</label>
                                             </div> 
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-4 col-form-label">BABI</label>
                                                 <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="jumlah_babi" readonly value="Masukkan Jumlah..">
+                                                <input type="text" class="form-control" id="jumlah_babi" readonly value="{{$val->jumlah_babi}}">
                                                 </div>
                                                 <label for="inputProvinsi" class="col-sm-2 col-form-label">EKOR</label>
                                             </div> 
                                             <div class="form-group row">
                                                 <label for="inputProvinsi" class="col-sm-4 col-form-label">KAMBING/DOMBA</label>
                                                 <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="jumlah_kambing" readonly value="Masukkan Jumlah..">
+                                                <input type="text" class="form-control" id="jumlah_kambing" readonly value="{{$val->rumah_lain}}">
                                                 </div>
                                                 <label for="inputProvinsi" class="col-sm-2 col-form-label">EKOR</label>
                                             </div>  
@@ -613,7 +600,6 @@
                                     </div>
                                 </center>     
                             <div class="card-body">                           
-                             
                                         <div class="form-group row">
                                                 <div class="col-sm-12">
                                                     <div class="custom-control custom-checkbox">
